@@ -78,8 +78,14 @@ app.post('/', async (req, res) => {
 
 });
 
-// Start the server
-const port = 3000; // Choose any port number you prefer
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+let port=process.env.PORT;
+if(port==null || port=="")
+{
+  port=3000;
+}
+
+
+app.listen(port,function(req,res)
+{
+  console.log("server is runnig on port 3000");
+})
